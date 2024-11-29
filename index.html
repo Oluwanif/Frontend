@@ -27,7 +27,7 @@
 
 </head>
 
-<body id="app">
+<body id="app" >
 
 	<!-- Header START -->
 	<header class="navbar-dark navbar-sticky">
@@ -92,16 +92,16 @@
 	<!-- Header END -->
 
 	<!--  MAIN CONTENT START  -->
-	<main v-if="showProduct">
+	<main v-if="showProduct" >
 
 		<!-- 
       Page Banner START -->
-		<section class="bg-blue align-items-center d-flex">
+		<section class="bg-dark align-items-center d-flex">
 			<div class="container">
 				<div class="row">
 					<div class="col-12 text-center">
 						<!-- Title -->
-						<h1 class="text-white">Lessons</h1>
+						<h1 class="text-white">Book Stores</h1>
 
 					</div>
 				</div>
@@ -204,10 +204,10 @@
 											<a href="#"
 												class="badge bg-success bg-opacity-10 text-success">{{product.subcat}}</a>
 											<!-- Use product-specific unshowLove for independent toggling -->
-											<a type="button" v-if="product.unshowLove" @click="toggleLove(product)"
+											<!-- <a type="button" v-if="product.unshowLove" @click="toggleLove(product)"
 												class="h6 fw-light mb-0">
 												<i class="far fa-heart"></i>
-											</a>
+											</a> -->
 											<a type="button" v-else @click="toggleLove(product)" class="text-danger">
 												<i class="fas fa-heart"></i>
 											</a>
