@@ -27,7 +27,7 @@
 
 </head>
 
-<body id="app" >
+<body id="app">
 
 	<!-- Header START -->
 	<header class="navbar-dark navbar-sticky">
@@ -36,14 +36,13 @@
 			<div class="container">
 				<!-- Logo START -->
 				<a class="navbar-brand" href="index.html">
-					<h2>Tres</h2>
+					<h2>Treson Lessons</h2>
 				</a>
 				<!-- Logo END -->
 
 				<!-- Responsive navbar toggler -->
-				<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-					data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-					aria-label="Toggle navigation">
+				<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-animation">
 						<span></span>
 						<span></span>
@@ -57,12 +56,6 @@
 					<!-- Nav Main menu START -->
 					<ul class="navbar-nav navbar-nav-scroll mx-auto">
 
-						<li class="nav-item dropdown">
-							<a class="nav-link" href="index.html" id="demoMenu">HOME</a>
-
-						</li>
-
-
 					</ul>
 					<!-- Nav Main menu END -->
 
@@ -73,13 +66,11 @@
 
 				<!-- Cart button -->
 				<div class="me-2 me-md-3 dropdown">
-					<button :disabled="!hasItemsInCart" v-on:click="showCart" class="btn btn-light btn-round mb-0"
-						role="button">
+					<button :disabled="!hasItemsInCart" v-on:click="showCart" class="btn btn-light btn-round mb-0" role="button">
 						<i class="bi bi-cart3 fa-fw"></i>
 					</button>
 					<!-- badge -->
-					<span
-						class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-dark mt-xl-2 ms-n1">
+					<span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-dark mt-xl-2 ms-n1">
 						{{ itemsInTheCart }}
 					</span>
 				</div>
@@ -92,83 +83,11 @@
 	<!-- Header END -->
 
 	<!--  MAIN CONTENT START  -->
-	<main v-if="showProduct" >
+	<main v-if="showProduct">
 
-		<!-- 
-      Page Banner START -->
-		<section class="bg-dark align-items-center d-flex">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 text-center">
-						<!-- Title -->
-						<h1 class="text-white">Book Stores</h1>
-
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- 
-          Page Banner END -->
-
-		<!-- 
-              Page content START -->
 		<section class="py-5">
 			<div class="container">
 				<div class="row">
-					<!-- Right sidebar START -->
-					<div class="col-lg-4 col-xl-3">
-						<!-- Responsive offcanvas body START -->
-						<div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasSidebar">
-							<div class="offcanvas-header bg-light">
-								<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Advance Filter</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-									data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
-							</div>
-							<div class=" p-3 p-lg-0">
-								<form>
-									<!-- Category START -->
-									<div class="card card-body shadow p-4 mb-4">
-										<!-- Title -->
-										<h4 class="mb-3">Sort By</h4>
-										<!-- Category group -->
-										<div class="col-12">
-											<!-- Sorting Criteria Radios -->
-											<div v-for="(option, index) in sortOptions" :key="index"
-												class="d-flex justify-content-between align-items-center">
-												<div class="form-check">
-													<input class="form-check-input" type="radio" name="sortby"
-														:id="'sortOption' + index" v-model="sortBy"
-														:value="option.value">
-													<label class="form-check-label" :for="'sortOption' + index">{{
-														option.label }}</label>
-												</div>
-											</div>
-
-											<!-- Sort Order Radios -->
-											<div class="d-flex justify-content-between align-items-center">
-												<div class="form-check">
-													<input class="form-check-input" type="radio" name="order"
-														id="ascending" v-model="sortOrder" value="asc">
-													<label class="form-check-label" for="ascending">Ascending</label>
-												</div>
-											</div>
-											<div class="d-flex justify-content-between align-items-center">
-												<div class="form-check">
-													<input class="form-check-input" type="radio" name="order"
-														id="descending" v-model="sortOrder" value="desc">
-													<label class="form-check-label" for="descending">Descending</label>
-												</div>
-											</div>
-										</div>
-									</div>
-									<!-- Category END -->
-								</form><!-- Form End -->
-							</div>
-
-						</div>
-						<!-- Responsive offcanvas body END -->
-					</div>
-					<!-- Right sidebar END -->
 
 					<!-- Main content START -->
 					<div class="col-lg-8 col-xl-9">
@@ -176,7 +95,7 @@
 						<!-- Search option START -->
 						<div class="row mb-4 align-items-center">
 							<!-- Search bar -->
-							<div class="col-xl-6">
+							<div class="col-xl-12">
 								<form class="border rounded p-2">
 									<div class="input-group input-borderless">
 										<input type="text" v-model="searchQuery" placeholder="Search for products..."
@@ -193,39 +112,23 @@
 						<div class="row g-4">
 
 							<!-- Card item START -->
-							<div v-for="product in filteredAndSortedProducts" :key="product.id"
-								class="col-sm-6 col-xl-4">
+							<div v-for="product in filteredAndSortedProducts" :key="product.id" class="col-sm-6 col-xl-4">
 								<div class="card shadow h-100">
 									<!-- Image -->
 									<img v-bind:src="product.image" class="card-img-top" alt="course image">
 									<div class="card-body pb-0">
 										<!-- Badge and favorite -->
-										<div class="d-flex justify-content-between mb-2">
-											<a href="#"
-												class="badge bg-success bg-opacity-10 text-success">{{product.subcat}}</a>
-											<!-- Use product-specific unshowLove for independent toggling -->
-											<!-- <a type="button" v-if="product.unshowLove" @click="toggleLove(product)"
-												class="h6 fw-light mb-0">
-												<i class="far fa-heart"></i>
-											</a> -->
-											<!-- <a type="button" v-else @click="toggleLove(product)" class="text-danger">
-												<i class="fas fa-heart"></i>
-											</a> -->
-										</div>
+										<!-- <div class="d-flex justify-content-between mb-2">
+											<a href="#" class="badge bg-success bg-opacity-10 text-success">{{product.subcat}}</a>
+
+										</div> -->
 										<!-- Title -->
 										<h5 class="card-title"><a href="#">{{product.title}} </a></h5>
 										<p class="mb-2 text-truncate-2"><strong>Location: </strong>{{product.location}}
 										</p>
 										<!-- Rating star -->
 										<ul class="list-inline d-flex justify-content-between mb-0">
-											<div>
-												<li v-for="n in product.rating" class="list-inline-item me-0 small">
-													<i class="fas fa-star text-warning"></i>
-												</li>
-												<li v-for="n in 5 - product.rating" class="list-inline-item me-0 small">
-													<i class="far fa-star text-warning"></i>
-												</li>
-											</div>
+
 											<div>
 												<li class="list-inline-item ms-2 h6 fw-light mb-0">£{{product.price}}
 												</li>
@@ -238,20 +141,20 @@
 										<div class="d-flex justify-content-between">
 
 											<button v-if="itemsLimit(product)" @click="addToCart(product)" type="button"
-												class="btn btn-outline-primary">Add to cart</button>
-											<button v-else class="btn btn-outline-primary" disabled>Add
+												class="btn btn-outline-success">Add to cart</button>
+											<button v-else class="btn btn-outline-success" disabled>Add
 												to cart</button>
 
 											<span v-if="itemsLeft(product) === 0" class="h6 fw-light mb-0">
-												<i class="fas fa-book mt-3 text-orange me-2"></i>
+												<i class="fas fa-store mt-3 text-dark me-2"></i>
 												All Out!
 											</span>
 											<span v-else-if="itemsLeft(product) < 5" class="h6 fw-light mb-0">
-												<i class="fas fa-book mt-3 text-orange me-2"></i>
+												<i class="fas fa-store mt-3 text-dark me-2"></i>
 												Only {{itemsLeft(product)}} Left!
 											</span>
 											<span v-else class="h6 fw-light mb-0">
-												<i class="fas fa-book mt-3 text-orange me-2"></i>
+												<i class="fas fa-store mt-3 text-dark me-2"></i>
 												<!-- {{product.spaces}} Lectures -->
 												{{itemsLeft(product)}} Lectures
 												<!-- Buy Now! -->
@@ -271,6 +174,59 @@
 
 					</div>
 					<!-- Main content END -->
+					<!-- Right sidebar START -->
+					<div class="col-lg-4 col-xl-3">
+						<!-- Responsive offcanvas body START -->
+						<div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasSidebar">
+							<div class="offcanvas-header bg-light">
+								<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Advance Filter</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar"
+									aria-label="Close"></button>
+							</div>
+							<div class=" p-3 p-lg-0">
+								<form>
+									<!-- Category START -->
+									<div class="card card-body shadow p-4 mb-4">
+										<!-- Title -->
+										<h4 class="mb-3">Sort Options</h4>
+										<!-- Category group -->
+										<div class="col-1	2">
+											<!-- Sorting Criteria Radios -->
+											<div v-for="(option, index) in sortOptions" :key="index"
+												class="d-flex justify-content-between align-items-center">
+												<div class="form-check">
+													<input class="form-check-input" type="radio" name="sortby" :id="'sortOption' + index"
+														v-model="sortBy" :value="option.value">
+													<label class="form-check-label" :for="'sortOption' + index">{{
+														option.label }}</label>
+												</div>
+											</div>
+
+											<!-- Sort Order Radios -->
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="form-check">
+													<input class="form-check-input" type="radio" name="order" id="ascending" v-model="sortOrder"
+														value="asc">
+													<label class="form-check-label" for="ascending">Ascending</label>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="form-check">
+													<input class="form-check-input" type="radio" name="order" id="descending" v-model="sortOrder"
+														value="desc">
+													<label class="form-check-label" for="descending">Descending</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Category END -->
+								</form><!-- Form End -->
+							</div>
+
+						</div>
+						<!-- Responsive offcanvas body END -->
+					</div>
+					<!-- Right sidebar END -->
 
 
 				</div><!-- Row END -->
@@ -317,17 +273,17 @@
 							<form class="row g-3 mt-0">
 								<!-- Name -->
 								<div class="col-md-6 bg-light-input">
-									<label for="yourName" class="form-label">Your name *</label>
-									<input type="text" class="form-control" id="yourName" v-model="formData.name"
-										placeholder="Name" @input="preventSpaces">
+									<label for="yourName" class="form-label">Name *</label>
+									<input type="text" class="form-control" id="yourName" v-model="formData.name" placeholder="Name"
+										@input="preventSpaces">
 								</div>
 								<!-- Email -->
 
 								<!-- Mobile number -->
 								<div class="col-md-6 bg-light-input">
 									<label for="mobileNumber" class="form-label">Mobile number *</label>
-									<input type="number" class="form-control" id="mobileNumber"
-										v-model="formData.mobile" placeholder="Mobile number">
+									<input type="number" class="form-control" id="mobileNumber" v-model="formData.mobile"
+										placeholder="Mobile number">
 								</div>
 
 							</form>
@@ -364,8 +320,7 @@
 
 												<!-- Remove button -->
 												<div class="text-primary-hover">
-													<a href="#" class="text-body me-2"
-														@click.prevent="removeFromCart(index)">
+													<a href="#" class="text-body me-2" @click.prevent="removeFromCart(index)">
 														<i class="bi bi-trash me-1"></i>Remove
 													</a>
 												</div>
@@ -389,8 +344,7 @@
 									</ul>
 
 									<!-- Place Order Button -->
-									<a href="#" class="btn btn-lg btn-success" :disabled="!formIsValid"
-										@click.prevent="placeOrder">
+									<a href="#" class="btn btn-lg btn-success" :disabled="!formIsValid" @click.prevent="placeOrder">
 										Place Order
 									</a>
 
